@@ -1,0 +1,23 @@
+# FedSynAI: Enterprise Privacy-Preserving Federated Learning & Synthetic Data Platform
+# Dependencies Specification
+
+# Core Federated Learning (Flower 1.36+ Grid Architecture with Simulation Engine)
+flwr[simulation]>=1.36.0
+flwr-datasets>=0.6.1
+
+# Deep Learning & Numerical Computing
+torch>=2.2.0
+numpy>=1.26.0
+scipy>=1.13.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+
+# Differential Privacy (Opacus DPWrapper & Renyi DP Accounting)
+opacus>=1.5.0
+
+# Generative Synthetic Data (SDV / CTGAN Augmentation)
+sdv>=1.15.0
+
+# Visualization & Interactive Comparison Dashboard
+streamlit>=1.35.0
+plotly>=5.20.0
