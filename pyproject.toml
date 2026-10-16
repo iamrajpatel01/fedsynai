@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fedsynai"
+version = "0.1.0"
+description = "Enterprise Privacy-Preserving Federated Learning & Synthetic Data Platform"
+license = {file = "LICENSE"}
+dependencies = [
+    "flwr[simulation]>=1.36.0",
+    "flwr-datasets>=0.6.1",
+    "torch==2.10.0",
+    "scikit-learn>=1.5.0",
+    "pandas>=2.2.0",
+    "opacus>=1.5.0",
+    "sdv>=1.15.0",
+    "scipy>=1.13.0",
+    "streamlit>=1.35.0",
+    "plotly>=5.20.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.flwr.app]
+publisher = "flwrlabs"
+fab-format-version = 1
+flwr-version-target = "1.36.0"
+
+[tool.flwr.app.components]
+serverapp = "pytorchexample.server_app:app"
+clientapp = "pytorchexample.client_app:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 10
+fraction-evaluate = 1.0
+local-epochs = 2
+learning-rate = 0.001
+batch-size = 64
+save-model = true
+# --- FedSynAI Custom Enterprise Toggles ---
+# E1: Centralised Baseline     -> all flags false/0.0
+# E2: Standard FL (FedAvg)     -> non-iid=false, use-dp=false, use-synthetic=false
+# E3: Non-IID FL (FedProx)     -> non-iid=true,  fedprox-mu=0.01
+# E4: DP-FL                    -> use-dp=true,   noise-multiplier=1.1, max-grad-norm=1.0
+# E5: FedSynAI (full pipeline) -> use-synthetic=true (implicitly enables dp+fedprox)
+plugin-name = "credit_risk"
+non-iid = false
+use-dp = false
+noise-multiplier = 1.1
+max-grad-norm = 1.0
+use-synthetic = false
+fedprox-mu = 0.0
+
+

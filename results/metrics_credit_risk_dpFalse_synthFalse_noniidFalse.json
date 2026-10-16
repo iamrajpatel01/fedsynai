@@ -1,0 +1,35 @@
+{
+  "experiment": "credit_risk_dpFalse_synthFalse_noniidFalse",
+  "config": {
+    "plugin": "credit_risk",
+    "rounds": 2,
+    "lr": 0.001,
+    "non_iid": false,
+    "use_dp": false,
+    "noise_multiplier": 1.1,
+    "max_grad_norm": 1.0,
+    "use_synthetic": false,
+    "fedprox_mu": 0.0
+  },
+  "mia_auc": 0.4938234375,
+  "rounds": [
+    {
+      "round": 0,
+      "loss": 0.6299630318369184,
+      "accuracy": 0.6975,
+      "f1": 0.5829044351251748
+    },
+    {
+      "round": 1,
+      "loss": 0.508625579731805,
+      "accuracy": 0.7425,
+      "f1": 0.672595607921576
+    },
+    {
+      "round": 2,
+      "loss": 0.4266260734626225,
+      "accuracy": 0.825,
+      "f1": 0.8019355240229027
+    }
+  ]
+}

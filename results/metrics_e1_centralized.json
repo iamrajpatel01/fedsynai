@@ -1,0 +1,27 @@
+{
+  "experiment": "e1_centralized",
+  "config": {
+    "plugin": "credit_risk",
+    "epochs": 5,
+    "lr": 0.001,
+    "batch_size": 64,
+    "num_clients_pooled": 4
+  },
+  "metrics": {
+    "train_loss": 0.351168,
+    "test_loss": 0.199576,
+    "accuracy": 0.92625,
+    "f1": 0.92542
+  },
+  "mia_auc": 0.490857,
+  "training_time_s": 2.96,
+  "rounds": [
+    {
+      "round": 0,
+      "loss": 0.19957636869870699,
+      "accuracy": 0.92625,
+      "f1": 0.9254195162372106,
+      "mia_auc": 0.49085703125
+    }
+  ]
+}
